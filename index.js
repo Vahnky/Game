@@ -13,11 +13,22 @@ let dice = {
   }
   
 
-  // fonction qui affiche le nombre number mis en paramètre dans l'id'placeholder
-  function printNumber(number) {
-    let placeholder = document.getElementById('placeholder');
-    placeholder.innerHTML = number;
-  }
+// fonction qui affiche l'image correspondant au nombre number mis en paramètre dans l'id'placeholder
+function printNumber(number) {
+  let placeholder = document.getElementById('placeholder');
+
+  // Crée un nouvel élément img
+  let img = document.createElement('img');
+
+  // Définit l'attribut src de l'élément img pour correspondre à l'image du dé
+  img.src = 'img/de' + number + '.png';
+
+  // Vide le contenu actuel du placeholder
+  placeholder.innerHTML = '';
+
+  // Ajoute l'élément img au placeholder
+  placeholder.appendChild(img);
+}
   
   // On stock le bouton d'id buttonjet dans une variable
   let buttonjet = document.getElementById('buttonjet');
@@ -79,16 +90,17 @@ let dice = {
 
     if (result === 1) {
 
-      // on passe result à 0 et on l'affiche et on met sommejoueur qui passent à 0
+      // on passe result à et on met sommejoueur qui passent à 0
 
       result = 0; 
-  
-      let placeholder = document.getElementById('placeholder');
-      placeholder.innerHTML = 0; 
-  
+   
 
       sommeJoueur1 = 0;
       sommeJoueur2 = 0;
+
+      document.querySelector('p.curr1').innerHTML = sommeJoueur1;
+      document.querySelector('p.curr2').innerHTML = sommeJoueur2;
+
       // puis on change la valeur de tourjoueur, pour changer le tour
       if (tourjoueur === 1) {
         tourjoueur = 2;
