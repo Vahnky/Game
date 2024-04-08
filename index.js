@@ -162,8 +162,6 @@ buttonhold.onclick = function() {
     // On remet le dé et son affichage à 0
     result = 0; 
   
-    let placeholder = document.getElementById('placeholder');
-    placeholder.innerHTML = 0; 
   
     // On écrit le fait que ce soit le tour de l'autre joueur, la valeur de tourjoueur ayant changée
     let tourDiv = document.querySelector('.tourr');
